@@ -1,22 +1,30 @@
+import java.util.ArrayList;
 
 public class Language4 {
+	Tokenizer tknzr = new Tokenizer();
+	public Language4(ArrayList<String> lineList) {
+		this.tknzr = new Tokenizer(lineList);
+		for (int i = 0; i < lineList.size(); i++) {
+			System.out.println("Line " + i + " was " + isS());
+		}
+	}
 	
-	public boolean isS(Tokenizer line){
+	public boolean isS(){
 		boolean returnVal = false;
 		
-		if(isA(line)){
-			line.getNextToken();
+		if(isA()){
+			tknzr.getNextToken();
 			
-			if(line.getCurrToken() == 'a'){
-				line.getNextToken();
+			if(tknzr.getCurrToken() == 'a'){
+				tknzr.getNextToken();
 				
-				if(isB(line)){
-					line.getNextToken();
+				if(isB()){
+					tknzr.getNextToken();
 					
-					if(line.getCurrToken() == 'b'){
-						line.getNextToken();
+					if(tknzr.getCurrToken() == 'b'){
+						tknzr.getNextToken();
 						
-						if(line.isEndOfString()){
+						if(tknzr.isEndOfString()){
 							returnVal = true;
 						}
 					}
@@ -26,32 +34,32 @@ public class Language4 {
 		return returnVal;
 	}
 	
-	public boolean isA(Tokenizer line){
+	public boolean isA(){
 		boolean returnVal = false;
 		
-		if(line.getCurrToken() == 'b'){
-			line.getNextToken();
+		if(tknzr.getCurrToken() == 'b'){
+			tknzr.getNextToken();
 			
-			if(isA1(line)){
-				line.getNextToken();
+			if(isA1()){
+				tknzr.getNextToken();
 				returnVal = true;
 			}
 		}
 		return returnVal;
 	}
 	
-	public boolean isA1(Tokenizer line){
+	public boolean isA1(){
 		boolean returnVal = false;
 		
-		if(line.isEndOfString()){
-			line.getNextToken();
+		if(tknzr.isEndOfString()){
+			tknzr.getNextToken();
 			returnVal = true;
 		}
-		else if(line.getCurrToken() == 'b'){
-			line.getNextToken();
+		else if(tknzr.getCurrToken() == 'b'){
+			tknzr.getNextToken();
 			
-			if(isA1(line)){
-				line.getNextToken();
+			if(isA1()){
+				tknzr.getNextToken();
 				returnVal = true;
 			}
 		}
@@ -59,20 +67,20 @@ public class Language4 {
 		return returnVal;
 	}
 	
-	public boolean isB(Tokenizer line){
+	public boolean isB(){
 		boolean returnVal = false;
 		
-		if(line.getCurrToken() == 'a'){
-			line.getNextToken();
+		if(tknzr.getCurrToken() == 'a'){
+			tknzr.getNextToken();
 			
-			if(isB(line)){
-				line.getNextToken();
+			if(isB()){
+				tknzr.getNextToken();
 				returnVal = true;
 			}
 		}
 	
-		if(line.getCurrToken() == 'a'){
-			line.getNextToken();
+		if(tknzr.getCurrToken() == 'a'){
+			tknzr.getNextToken();
 			returnVal = true;
 		}
 		return returnVal;
