@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Language2{
-	static Tokenizer tknzr = new Tokenizer();
+	static Tokenizer tknzr;
 	public Language2(ArrayList<String> lineList) {
 		tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
@@ -11,7 +11,7 @@ public class Language2{
 	}
 
   private static boolean isAssign(){
-    if(isID() && tknzr.getNextToken() == '=' && isExpression())
+    if(isID() && getNext() == '=' && isExpression())
       return true;
     return false;
   }
@@ -37,12 +37,20 @@ public class Language2{
   }
 
   private static boolean checkChars(char[] query){
-    char token = tknzr.getNextToken();
+    char token = getNext();
     for(int i = 0; i < query.length; i++){
       if(token == query[i]){
         return true;
       }
     }
     return false;
+  }
+
+  private static char getNext(){
+    if(tknzr.getCurrPosition() == 0){
+      return tknzr.getCurrToken();
+    }else{
+      return tknzr.getNextToken();
+    }
   }
 }

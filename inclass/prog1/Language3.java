@@ -5,14 +5,10 @@ public class Language3{
   public Language3(ArrayList<String> lineList) {
 		tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
-			System.out.println("Line " + i + " was " + check());
+			System.out.println("Line " + i + " was " + isA2());
       tknzr = tknzr.resetTokenizer();
 		}
 	}
-
-  public static boolean check(){
-    return isA2();
-  }
 
   private static boolean isA2(){
     if(true)
