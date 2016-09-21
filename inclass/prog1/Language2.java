@@ -5,13 +5,10 @@ public class Language2{
 	public Language2(ArrayList<String> lineList) {
 		tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
-			System.out.println("Line " + i + " was " + check());
+			System.out.println("Line " + i + " was " + isAssign());
+      tknzr.resetTokenizer();
 		}
 	}
-
-  public static boolean check(){
-    return isAssign();
-  }
 
   private static boolean isAssign(){
     if(isID() && tknzr.getNextToken() == '=' && isExpression())
