@@ -21,9 +21,7 @@ public class Language2{
 
   private static boolean isExpression(){
     if(isDigit()){
-      if(tknzr.isEndOfString())
-        return true;
-      else if(checkChars(new char[]{'+', '-'}) && isExpression())
+      if(tknzr.isEndOfString() || (checkChars(new char[]{'+', '-'}) && isExpression()))
         return true;
     }
     return false;
