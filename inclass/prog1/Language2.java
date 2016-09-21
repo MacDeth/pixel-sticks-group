@@ -47,10 +47,8 @@ public class Language2{
   }
 
   private static char getNext(){
-    if(tknzr.getCurrPosition() == 0){
-      return tknzr.getCurrToken();
-    }else{
-      return tknzr.getNextToken();
-    }
+    char temp = tknzr.getCurrToken();
+    tknzr.getNextToken();
+    return temp;
   }
 }
