@@ -9,12 +9,28 @@ public class Recognizer {
 	public static void main(String[] args) {
 		// can make switch here based on input to route to each solution or if
 		// else
-		recog.getLangOption();
-		recog.getFileContent();
+		ArrayList<String> stringList = recog.getFileContent();
+		int choice = 0;
+		while (choice != 5) {
+			switch(recog.getLangOption()) {
+			case 1:
+				Language1 langOne = new Language1(stringList);
+				break;
+			case 2:
+				Language1 langTwo = new Language1(stringList);
+				break;
+			case 3:
+				Language1 langThree = new Language1(stringList);
+				break;
+			case 4:
+				Language4 langFour= new Language4(stringList);
+				break;
+		}
+		}
 
 	}
 
-	public String getInput() {
+	private String getInput() {
 		Scanner menuInput = null;
 		boolean valid = false;
 		String userIn = "";
@@ -31,7 +47,7 @@ public class Recognizer {
 		return userIn;
 	}
 
-	private int getLangOption() {
+	public int getLangOption() {
 		int option = 0;
 		System.out.println("What would you like to do?\n");
 		System.out.println("1.	Parse lang 1.\n");
@@ -48,7 +64,7 @@ public class Recognizer {
 
 	}
 
-	private ArrayList<String> getFileContent() {
+	public ArrayList<String> getFileContent() {
 		ArrayList<String> langFile = new ArrayList<String>();
 		boolean valid = false;
 		Scanner fileInput = null;
