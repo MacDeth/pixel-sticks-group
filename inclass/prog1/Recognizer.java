@@ -13,19 +13,19 @@ public class Recognizer {
 		int choice = 0;
 		while (choice != 5) {
 			switch(recog.getLangOption()) {
-			case 1:
-				Language1 langOne = new Language1(stringList);
-				break;
-			case 2:
-				Language2 langTwo = new Language2(stringList);
-				break;
-			case 3:
-				Language3 langThree = new Language3(stringList);
-				break;
-			case 4:
-				Language4 langFour= new Language4(stringList);
-				break;
-		}
+				case 1:
+					Language1 langOne = new Language1(stringList);
+					break;
+				case 2:
+					Language2 langTwo = new Language2(stringList);
+					break;
+				case 3:
+					Language3 langThree = new Language3(stringList);
+					break;
+				case 4:
+					Language4 langFour= new Language4(stringList);
+					break;
+			}
 		}
 
 	}

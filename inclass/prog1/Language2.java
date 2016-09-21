@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Language2{
 	static Tokenizer tknzr = new Tokenizer();
 	public Language2(ArrayList<String> lineList) {
-		this.tknzr = new Tokenizer(lineList);
+		tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
 			System.out.println("Line " + i + " was " + check());
 		}
