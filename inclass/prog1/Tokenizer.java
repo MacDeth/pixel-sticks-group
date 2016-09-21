@@ -1,14 +1,22 @@
+import java.util.ArrayList;
 
 public class Tokenizer {
-	private String[] line;
+	private ArrayList<String> lineList;
+	private int arrayIndex = 0;
 	private String currString;
 	private int currPos;
 	private char currToken;
 	private final char endOfString = '\u00B6';
 	
-	public Tokenizer (){
+	public Tokenizer (ArrayList<String> lineList){
+		this.lineList = lineList;
+		this.currString = lineList.get(arrayIndex);
 		currPos = 0;
-		currToken = endOfString;
+		currToken = getCurrToken();
+	}
+	
+	public Tokenizer() {
+		
 	}
 	
 	public String getString(){
@@ -21,6 +29,7 @@ public class Tokenizer {
 		}
 		else{
 			currToken = endOfString;
+			arrayIndex++;
 		}
 		return getCurrToken();
 	}	
