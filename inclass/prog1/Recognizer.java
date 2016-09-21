@@ -17,10 +17,10 @@ public class Recognizer {
 				Language1 langOne = new Language1(stringList);
 				break;
 			case 2:
-				Language1 langTwo = new Language1(stringList);
+				Language2 langTwo = new Language2(stringList);
 				break;
 			case 3:
-				Language1 langThree = new Language1(stringList);
+				Language3 langThree = new Language3(stringList);
 				break;
 			case 4:
 				Language4 langFour= new Language4(stringList);

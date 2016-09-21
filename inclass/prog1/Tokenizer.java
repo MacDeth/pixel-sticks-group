@@ -12,7 +12,7 @@ public class Tokenizer {
 		this.lineList = lineList;
 		this.currString = lineList.get(arrayIndex);
 		currPos = 0;
-		currToken = getCurrToken();
+		currToken = currString.charAt(currPos);
 	}
 	
 	public Tokenizer() {
@@ -46,18 +46,25 @@ public class Tokenizer {
 			return false;
 		}
 	}
-	public void setString(String input){
-		currString = input;
-		currPos = 0;
-		if(currString.length() > 0){
-			currToken = input.charAt(0);
-		}
-		else{
-			currToken = endOfString;
-		}
-	}
+//	public void setString(String input){
+//		currString = input;
+//		currPos = 0;
+//		if(currString.length() > 0){
+//			currToken = input.charAt(0);
+//		}
+//		else{
+//			currToken = endOfString;
+//		}
+//	}
 	
 	public int getCurrPosition(){
 		return currPos;
+	}
+	
+	public Tokenizer resetTokenizer() {
+		this.arrayIndex++;
+		this.currString = lineList.get(arrayIndex);
+		this.currToken = currString.charAt(0);
+		return this;		
 	}
 }

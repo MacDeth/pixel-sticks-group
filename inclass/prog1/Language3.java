@@ -1,8 +1,15 @@
-public class Language3{
-  private static Tokenizer tokenizer;
+import java.util.ArrayList;
 
-  public static boolean check(Tokenizer line){
-    tokenizer = line;
+public class Language3{
+  private static Tokenizer tknzr;
+  public Language3(ArrayList<String> lineList) {
+		this.tknzr = new Tokenizer(lineList);
+		for (int i = 0; i < lineList.size(); i++) {
+			System.out.println("Line " + i + " was " + check());
+		}
+	}
+
+  public static boolean check(){
     return isA2();
   }
 

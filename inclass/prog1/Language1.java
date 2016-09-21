@@ -1,13 +1,11 @@
 import java.util.ArrayList;
 
-public class Language4 {
+public class Language1 {
 	Tokenizer tknzr = new Tokenizer();
-	public Language4(ArrayList<String> lineList) {
+	public Language1(ArrayList<String> lineList) {
 		this.tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
 			System.out.println("Line " + i + " was " + isS());
-			tknzr.resetTokenizer();
-			
 		}
 	}
 	
@@ -32,7 +30,7 @@ public class Language4 {
 					}
 				}
 			}
-		} 
+		}
 		return returnVal;
 	}
 	
