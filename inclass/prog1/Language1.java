@@ -6,24 +6,28 @@ public class Language1 {
 	public Language1(ArrayList<String> lineList) {
 		this.tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
-			System.out.println("Line " + i + " was " + isS());
+			System.out.printf("%-20s%s%n","Line " + i + " was " + isS(), " | "+ "\tLine data: " + tknzr.getString());
 			tknzr.resetTokenizer();
 		}
 	}
-
+	//Starting point. 
 	public boolean isS() {
+		//If 'a' we want to kick off recursion on <S> since that should be the only legal possibility
 		if (tknzr.getCurrToken() == 'a') {
 			tknzr.getNextToken();
+			//next character after a is s
 			isS();
+			//if we've moved past <S> we'll check for c and then go for <B> since thats our only option within <S>
 			if(tknzr.getCurrToken() == 'c') {
 				tknzr.getNextToken();
 				return isB();
 			}
-			
+		//Check for plain old 'b' since we could just have it alone
 		} else if (tknzr.getCurrToken() == 'b') {
 			tknzr.getNextToken();
 			return tknzr.isEndOfString();
 		} else 
+			//only other option is the grammar starting with <A>
 			return isA();
 		return false;
 	}
