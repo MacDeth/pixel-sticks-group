@@ -8,9 +8,7 @@ public class Language4 {
 		for (int i = 0; i < lineList.size(); i++) {
 			System.out.println("Line " + i + " was " + isS() + " | "
 					+ "Line data: " + tknzr.getString());
-			if (i != lineList.size() - 1) {
-				tknzr.resetTokenizer();
-			}
+		
 
 		}
 	}
