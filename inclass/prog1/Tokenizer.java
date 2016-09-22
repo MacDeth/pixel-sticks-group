@@ -60,8 +60,8 @@ public class Tokenizer {
 	}
 
 	public void resetTokenizer() {
+		this.arrayIndex++;
 		if (arrayIndex < lineList.size()) {
-			this.arrayIndex++;
 			this.currString = lineList.get(arrayIndex);
 			this.currToken = currString.charAt(0);
 		}

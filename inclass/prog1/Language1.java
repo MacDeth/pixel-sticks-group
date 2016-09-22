@@ -12,7 +12,7 @@ public class Language1 {
 	public boolean isS(){
 		boolean returnVal = false;
 		
-		if(tknzr.getCurrToken() == 'b')
+		if(tknzr.getCurrToken() == 'a')
 		if(isA()){
 			tknzr.getNextToken();
 			
