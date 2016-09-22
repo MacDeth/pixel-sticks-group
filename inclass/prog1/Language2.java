@@ -1,3 +1,7 @@
+/*Drew Richardson, James D'Angelo, Taylor Miller
+Programming Assignment 1
+Language 2 Class*/
+
 import java.util.ArrayList;
 
 public class Language2{
