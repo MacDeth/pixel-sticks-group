@@ -6,7 +6,7 @@ public class Language3{
 		tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
 			System.out.println("Line " + i + " was " + isA2());
-      tknzr = tknzr.resetTokenizer();
+      tknzr.resetTokenizer();
 		}
 	}
 
