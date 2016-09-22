@@ -29,7 +29,6 @@ public class Tokenizer {
 		}
 		else{
 			currToken = endOfString;
-			arrayIndex++;
 		}
 		return getCurrToken();
 	}	
@@ -61,10 +60,9 @@ public class Tokenizer {
 		return currPos;
 	}
 	
-	public Tokenizer resetTokenizer() {
+	public void resetTokenizer() {
 		this.arrayIndex++;
 		this.currString = lineList.get(arrayIndex);
-		this.currToken = currString.charAt(0);
-		return this;		
+		this.currToken = currString.charAt(0);	
 	}
 }

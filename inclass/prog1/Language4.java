@@ -2,86 +2,89 @@ import java.util.ArrayList;
 
 public class Language4 {
 	Tokenizer tknzr = new Tokenizer();
+
 	public Language4(ArrayList<String> lineList) {
 		this.tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
-			System.out.println("Line " + i + " was " + isS());
-			tknzr.resetTokenizer();
-			
+			System.out.println("Line " + i + " was " + isS() + " | "
+					+ "Line data: " + tknzr.getString());
+			if (i != lineList.size() - 1) {
+				tknzr.resetTokenizer();
+			}
+
 		}
 	}
-	
-	public boolean isS(){
+
+	public boolean isS() {
 		boolean returnVal = false;
-		
-		if(isA()){
+
+		if (isA()) {
 			tknzr.getNextToken();
-			
-			if(tknzr.getCurrToken() == 'a'){
+
+			if (tknzr.getCurrToken() == 'a') {
 				tknzr.getNextToken();
-				
-				if(isB()){
+
+				if (isB()) {
 					tknzr.getNextToken();
-					
-					if(tknzr.getCurrToken() == 'b'){
+
+					if (tknzr.getCurrToken() == 'b') {
 						tknzr.getNextToken();
-						
-						if(tknzr.isEndOfString()){
+
+						if (tknzr.isEndOfString()) {
 							returnVal = true;
 						}
 					}
 				}
 			}
-		} 
+		}
 		return returnVal;
 	}
-	
-	public boolean isA(){
+
+	public boolean isA() {
 		boolean returnVal = false;
-		
-		if(tknzr.getCurrToken() == 'b'){
+
+		if (tknzr.getCurrToken() == 'b') {
 			tknzr.getNextToken();
-			
-			if(isA1()){
+
+			if (isA1()) {
 				tknzr.getNextToken();
 				returnVal = true;
 			}
 		}
 		return returnVal;
 	}
-	
-	public boolean isA1(){
+
+	public boolean isA1() {
 		boolean returnVal = false;
-		
-		if(tknzr.isEndOfString()){
+
+		if (tknzr.isEndOfString()) {
 			tknzr.getNextToken();
 			returnVal = true;
-		}
-		else if(tknzr.getCurrToken() == 'b'){
+		} else if (tknzr.getCurrToken() == 'b') {
 			tknzr.getNextToken();
-			
-			if(isA1()){
+
+			if (isA1()) {
 				tknzr.getNextToken();
 				returnVal = true;
 			}
 		}
-		
+
 		return returnVal;
 	}
-	
-	public boolean isB(){
+
+	public boolean isB() {
 		boolean returnVal = false;
-		
-		if(tknzr.getCurrToken() == 'a'){
+
+		if (tknzr.getCurrToken() == 'a') {
 			tknzr.getNextToken();
-			
-			if(isB()){
+
+			if (isB()) {
 				tknzr.getNextToken();
 				returnVal = true;
 			}
 		}
-	
-		if(tknzr.getCurrToken() == 'a'){
+
+		if (tknzr.getCurrToken() == 'a') {
 			tknzr.getNextToken();
 			returnVal = true;
 		}
