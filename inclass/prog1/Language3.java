@@ -15,8 +15,29 @@ public class Language3{
 	}
 
   private static boolean isA2(){
+    if(getNext() == 'a'){
+      isA2();
+      isB2();
+      if(getNext() == 'c')
+        return true;
+    }else if(isB2())
+      return true;
+    return false;
+  }
+
+  private static boolean isB2(){
+    if(getNext() == 'b'){
+      isB2();
+      if(getNext() == 'c'){
+        return true;
+      }
+    }
+    return false;
+  }
+
+  private static boolean check(){
     int ccount= 0;
-    
+
     while(getNext() == 'a')
       ccount++;
 
