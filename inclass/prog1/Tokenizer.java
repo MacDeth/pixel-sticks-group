@@ -1,3 +1,7 @@
+/*Drew Richardson, James D'Angelo, Taylor Miller
+Programming Assignment 1
+Language 4 Class*/
+
 import java.util.ArrayList;
 
 public class Tokenizer {
@@ -7,64 +11,65 @@ public class Tokenizer {
 	private int currPos;
 	private char currToken;
 	private final char endOfString = '\u00B6';
-
-	public Tokenizer(ArrayList<String> lineList) {
+	
+	public Tokenizer (ArrayList<String> lineList){
 		this.lineList = lineList;
 		this.currString = lineList.get(arrayIndex);
 		currPos = 0;
 		currToken = currString.charAt(currPos);
 	}
-
+	
 	public Tokenizer() {
-
+		
 	}
-
-	public String getString() {
+	
+	public String getString(){
 		return currString;
 	}
-
-	public char getNextToken() {
-		if (++currPos < currString.length()) {
+	
+	public char getNextToken(){
+		if(++currPos < currString.length()){
 			currToken = currString.charAt(currPos);
-		} else {
+		}
+		else{
 			currToken = endOfString;
 		}
 		return getCurrToken();
-	}
-
-	public char getCurrToken() {
+	}	
+	
+	public char getCurrToken(){
 		return currToken;
 	}
-
-	public boolean isEndOfString() {
-		if (currToken == endOfString) {
+	
+	public boolean isEndOfString(){
+		if(currToken == endOfString){
 			return true;
-		} else {
+		}
+		else{
 			return false;
 		}
 	}
-
-	// public void setString(String input){
-	// currString = input;
-	// currPos = 0;
-	// if(currString.length() > 0){
-	// currToken = input.charAt(0);
-	// }
-	// else{
-	// currToken = endOfString;
-	// }
-	// }
-
-	public int getCurrPosition() {
+	
+	public int getCurrPosition(){
 		return currPos;
 	}
-
+	
 	public void resetTokenizer() {
-		this.arrayIndex++;
-		if (arrayIndex < lineList.size()) {
-			this.currString = lineList.get(arrayIndex);
-			this.currToken = currString.charAt(0);
-			this.currPos = 0;
-		}
+        this.arrayIndex++;
+        if (arrayIndex < lineList.size()) {
+            this.currString = lineList.get(arrayIndex);
+            this.currToken = currString.charAt(0);
+            this.currPos = 0;
+        }
+    }
+	
+	public Tokenizer goBack(){
+		if(this.currPos == 0) 
+			return this;
+		
+		this.currPos--;
+		this.currToken = currString.charAt(this.currPos);
+		return this;
+		
 	}
 }
