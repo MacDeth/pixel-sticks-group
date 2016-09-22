@@ -25,11 +25,14 @@ public class Recognizer {
 				case 4:
 					Language4 langFour= new Language4(stringList);
 					break;
+				case 5: 
+					recog.getFileContent();
+					break;
 			}
 		}
 
 	}
-
+	//gets the input from user
 	private String getInput() {
 		Scanner menuInput = null;
 		boolean valid = false;
@@ -46,7 +49,7 @@ public class Recognizer {
 		}
 		return userIn;
 	}
-
+	//gets language option using getInput() method
 	public int getLangOption() {
 		int option = 0;
 		System.out.println("What would you like to do?\n");
@@ -54,16 +57,17 @@ public class Recognizer {
 		System.out.println("2.	Parse lang 2.\n");
 		System.out.println("3.	Parse lang 3.\n");
 		System.out.println("4.	Parse lang 4.\n");
+		System.out.println("5.	Load new file.\n");
 
 		option = Integer.parseInt(getInput());
-		if (option < 1 || option > 4) {
+		if (option < 1 || option > 5) {
 			System.out.println("Please enter a valid language option\n");
 			getLangOption();
 		}
 		return option;
 
 	}
-
+	//gets file input using getInput() method
 	public ArrayList<String> getFileContent() {
 		ArrayList<String> langFile = new ArrayList<String>();
 		boolean valid = false;

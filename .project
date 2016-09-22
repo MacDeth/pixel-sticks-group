@@ -14,4 +14,11 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>prog1</name>
+			<type>2</type>
+			<location>/Users/drew/Documents/workspace/RecognizerApp/pixel-sticks-haskell/inclass/prog1</location>
+		</link>
+	</linkedResources>
 </projectDescription>
