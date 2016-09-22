@@ -1,90 +1,91 @@
+/*Drew Richardson, James D'Angelo, Taylor Miller
+Programming Assignment 1
+Language 4 Class*/
+
 import java.util.ArrayList;
 
 public class Language4 {
 	Tokenizer tknzr = new Tokenizer();
-
+	
 	public Language4(ArrayList<String> lineList) {
 		this.tknzr = new Tokenizer(lineList);
 		for (int i = 0; i < lineList.size(); i++) {
-			System.out.println("Line " + i + " was " + isS() + " | "
-					+ "Line data: " + tknzr.getString());
+			System.out.println("Line " + i + " was " + isS());
 			tknzr.resetTokenizer();
+			
 		}
 	}
-
-	public boolean isS() {
-		boolean returnVal = false;
-
-		if (isA()) {
+	
+	// Starting point of the language
+	public boolean isS(){
+		boolean returnVal = false;;
+		
+		if(isA()){
 			tknzr.getNextToken();
-
-			if (tknzr.getCurrToken() == 'a') {
+			
+			if(tknzr.getCurrToken() == 'a'){
 				tknzr.getNextToken();
-
-				if (isB()) {
+				
+				if(isB()){
 					tknzr.getNextToken();
-
-					if (tknzr.getCurrToken() == 'b') {
+					
+					if(tknzr.getCurrToken() == 'b'){
 						tknzr.getNextToken();
-
-						if (tknzr.isEndOfString()) {
+						
+						if(tknzr.isEndOfString()){
 							returnVal = true;
 						}
+						else {
+							return false;
+						}
 					}
+					else{
+						return false;
+					}
+
+				}
+				else{
+					return false;
 				}
 			}
+			else{
+				return false;
+			}
+		}
+		else{
+			return false;
 		}
 		return returnVal;
 	}
-
-	public boolean isA() {
-		boolean returnVal = false;
-
-		if (tknzr.getCurrToken() == 'b') {
+	
+	// Checks to see if the current character is part of <A>; if the current character isn't a 'b', then the position reverses to accommodate the possible empty string
+	// as well as the 'a' in <S>
+	public boolean isA(){		
+		if(tknzr.getCurrToken() == 'b'){
 			tknzr.getNextToken();
-
-			if (isA1()) {
-				tknzr.getNextToken();
-				returnVal = true;
-			}
+			return isA();
 		}
-		return returnVal;
+		else if(tknzr.isEndOfString()){
+			return true;
+		}
+		else{
+			tknzr.goBack();
+			return true;
+		}
 	}
-
-	public boolean isA1() {
-		boolean returnVal = false;
-
-		if (tknzr.isEndOfString()) {
+	
+	// checks to see if the current character is part of <B>; it must end with a b. 
+	public boolean isB(){
+		if(tknzr.getCurrToken() == 'a'){
 			tknzr.getNextToken();
-			returnVal = true;
-		} else if (tknzr.getCurrToken() == 'b') {
-			tknzr.getNextToken();
-
-			if (isA1()) {
-				tknzr.getNextToken();
-				returnVal = true;
-			}
+			return isB();
 		}
-
-		return returnVal;
-	}
-
-	public boolean isB() {
-		boolean returnVal = false;
-
-		if (tknzr.getCurrToken() == 'a') {
-			tknzr.getNextToken();
-
-			if (isB()) {
-				tknzr.getNextToken();
-				returnVal = true;
-			}
+		else if(tknzr.isEndOfString()){
+			return false;
 		}
-
-		if (tknzr.getCurrToken() == 'a') {
-			tknzr.getNextToken();
-			returnVal = true;
+		else{
+			tknzr.goBack();
+			return true;
 		}
-		return returnVal;
 	}
 }

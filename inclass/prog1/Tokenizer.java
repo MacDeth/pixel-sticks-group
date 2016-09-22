@@ -64,6 +64,7 @@ public class Tokenizer {
 		if (arrayIndex < lineList.size()) {
 			this.currString = lineList.get(arrayIndex);
 			this.currToken = currString.charAt(0);
+			this.currPos = 0;
 		}
 	}
 }
