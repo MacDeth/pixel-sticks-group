@@ -15,14 +15,35 @@ public class Language3{
 	}
 
   private static boolean isA2(){
-    if(true)
+    int ccount= 0;
+    
+    while(getNext() == 'a')
+      ccount++;
+
+    if(tknzr.getCurrToken() == 'b')
+      ccount++;
+
+    else if(tknzr.getCurrToken() == 'c')
+      ccount--;
+
+    while(getNext() == 'b')
+      ccount++;
+
+    if(tknzr.getCurrToken() == 'c')
+      ccount--;
+
+    while(getNext() == 'c')
+      ccount--;
+
+    if(ccount == 0)
       return true;
+
     return false;
   }
 
-  private static boolean isB2(){
-    if(true)
-      return true;
-    return false;
+  private static char getNext(){
+    char temp = tknzr.getCurrToken();
+    tknzr.getNextToken();
+    return temp;
   }
 }
