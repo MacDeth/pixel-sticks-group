@@ -29,7 +29,7 @@ public class Recognizer {
 		}
 
 	}
-
+	//gets the input from user
 	private String getInput() {
 		Scanner menuInput = null;
 		boolean valid = false;
@@ -46,7 +46,7 @@ public class Recognizer {
 		}
 		return userIn;
 	}
-
+	//gets language option using getInput() method
 	public int getLangOption() {
 		int option = 0;
 		System.out.println("What would you like to do?\n");
@@ -63,7 +63,7 @@ public class Recognizer {
 		return option;
 
 	}
-
+	//gets file input using getInput() method
 	public ArrayList<String> getFileContent() {
 		ArrayList<String> langFile = new ArrayList<String>();
 		boolean valid = false;

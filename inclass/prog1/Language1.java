@@ -31,7 +31,7 @@ public class Language1 {
 			return isA();
 		return false;
 	}
-
+	//Goes down the <A> path. Options are c and terminal d
 	public boolean isA() {
 
 		if (tknzr.getCurrToken() == 'c') {
@@ -47,7 +47,7 @@ public class Language1 {
 		}
 		return false;
 	}
-
+	//Goes down <B> path. Options are <A> and terminal d.
 	public boolean isB() {
 		if (tknzr.getCurrToken() == 'a') {
 			return isA();
