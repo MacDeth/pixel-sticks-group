@@ -5,8 +5,8 @@ public enum Lexeme{
   ASSIGNMENT,         ADDITION,
   SUBTRACTION,        MULTIPLICATION,
   DIVISION,           EQUALITY,
-  NOTEQUALS,          LEFT_PARENTHESIS,
+  NOT_EQUALS,         LEFT_PARENTHESIS,
   RIGHT_PARENTHESIS,  IF,
   THEN,               ELSE,
-  ENDIF,              END_OF_INPUT;
+  END_IF,             END_OF_INPUT;
 }
