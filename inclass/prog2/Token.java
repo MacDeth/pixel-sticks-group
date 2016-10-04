@@ -1,4 +1,4 @@
-public enum Lexeme{
+public enum Token{
   IDENTIFIER,         INTEGER,
   PROCEDURE,          BEGIN,
   END,                SEMICOLON,
