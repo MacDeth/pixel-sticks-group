@@ -8,9 +8,9 @@ b := 12;
 
 c := 12;
 
-if ( a != b) then
+if ( a != 12 ) then
 
-  if ( a = c ) then
+  if ( a = 10 ) then
 
     a := b;
 
@@ -20,7 +20,7 @@ else
 
   a := c;
 
-  b := 2*c;
+  b := 2 * c;
 
 endif;
 
