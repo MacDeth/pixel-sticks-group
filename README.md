@@ -1,2 +1,2 @@
-# pixel-sticks-small-haskell
-WVU CS 310 group Pixel Stickz small haskell program repository.
+# pixel-sticks-group
+WVU CS 310 group Pixel Sticks program repository for group programming assignments.
